@@ -8,10 +8,11 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Newsletter Model
+ * Newsletters Model
  *
+ * @property \Cake\ORM\Association\BelongsToMany $Genres
  */
-class NewsletterTable extends Table
+class NewslettersTable extends Table
 {
 
     /**
@@ -24,9 +25,15 @@ class NewsletterTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('newsletter');
+        $this->table('newsletters');
         $this->displayField('id');
         $this->primaryKey('id');
+
+        $this->belongsToMany('Genres', [
+            'foreignKey' => 'newsletter_id',
+            'targetForeignKey' => 'genre_id',
+            'joinTable' => 'newsletters_genres'
+        ]);
     }
 
     /**

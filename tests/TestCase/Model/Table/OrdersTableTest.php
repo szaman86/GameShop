@@ -27,6 +27,8 @@ class OrdersTableTest extends TestCase
         'app.orders',
         'app.products',
         'app.genres',
+        'app.newsletters',
+        'app.newsletters_genres',
         'app.publishers'
     ];
 

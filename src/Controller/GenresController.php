@@ -24,6 +24,20 @@ class GenresController extends AppController
         $this->set('_serialize', ['genres']);
     }
 
+
+    /**
+     * Index method
+     *
+     * @return \Cake\Network\Response|null
+     */
+    public function customIndex()
+    {
+        $genres = $this->paginate($this->Genres);
+
+        $this->set(compact('genres'));
+        $this->set('_serialize', ['genres']);
+    }
+
     /**
      * View method
      *
@@ -32,6 +46,23 @@ class GenresController extends AppController
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
+    {
+        $genre = $this->Genres->get($id, [
+            'contain' => ['Products']
+        ]);
+
+        $this->set('genre', $genre);
+        $this->set('_serialize', ['genre']);
+    }
+
+    /**
+     * View method
+     *
+     * @param string|null $id Genre id.
+     * @return \Cake\Network\Response|null
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function customerView($id = null)
     {
         $genre = $this->Genres->get($id, [
             'contain' => ['Products']

@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property \App\Model\Entity\Product[] $products
+ * @property \App\Model\Entity\Newsletter[] $newsletter
  */
 class Genre extends Entity
 {

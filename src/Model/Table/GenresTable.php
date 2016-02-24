@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  * Genres Model
  *
  * @property \Cake\ORM\Association\HasMany $Products
+ * @property \Cake\ORM\Association\BelongsToMany $Newsletters
  */
 class GenresTable extends Table
 {
@@ -31,6 +32,11 @@ class GenresTable extends Table
 
         $this->hasMany('Products', [
             'foreignKey' => 'genre_id'
+        ]);
+        $this->belongsToMany('Newsletters', [
+            'foreignKey' => 'genre_id',
+            'targetForeignKey' => 'newsletter_id',
+            'joinTable' => 'newsletters_genres'
         ]);
     }
 
