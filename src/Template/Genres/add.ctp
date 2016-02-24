@@ -14,7 +14,7 @@
         <legend><?= __('Add Genre') ?></legend>
         <?php
             echo $this->Form->input('name');
-            echo $this->Form->input('newsletters._ids', ['options' => $newsletters]);
+            //echo $this->Form->input('newsletters._ids', ['options' => $newsletters]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
