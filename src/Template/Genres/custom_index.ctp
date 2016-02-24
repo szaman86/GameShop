@@ -14,9 +14,7 @@
                 <td><?= $this->Number->format($genre->id) ?></td>
                 <td><?= h($genre->name) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $genre->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $genre->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $genre->id], ['confirm' => __('Are you sure you want to delete # {0}?', $genre->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'customerView', $genre->id]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

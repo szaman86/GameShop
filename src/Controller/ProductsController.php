@@ -1,8 +1,6 @@
 <?php
 namespace App\Controller;
 
-use App\Controller\AppController;
-
 /**
  * Products Controller
  *
@@ -112,5 +110,16 @@ class ProductsController extends AppController
             $this->Flash->error(__('The product could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function buy($id = null)
+    {
+        $order = $this->Orders->newEntity();
+        $product = $this->Products->get($id, [
+            'contain' => ['Genres', 'Publishers']
+        ]);
+
+        $this->set('product', $product);
+        $this->set('_serialize', ['product']);
     }
 }
