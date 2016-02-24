@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\GenresTable;
+use App\Model\Table\OrdersTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\GenresTable Test Case
+ * App\Model\Table\OrdersTable Test Case
  */
-class GenresTableTest extends TestCase
+class OrdersTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\GenresTable
+     * @var \App\Model\Table\OrdersTable
      */
-    public $Genres;
+    public $Orders;
 
     /**
      * Fixtures
@@ -24,11 +24,12 @@ class GenresTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.genres',
+        'app.orders',
         'app.products',
-        'app.publishers',
-        'app.newsletter',
-        'app.newsletter_genres'
+        'app.genres',
+        'app.newsletters',
+        'app.newsletters_genres',
+        'app.publishers'
     ];
 
     /**
@@ -39,8 +40,8 @@ class GenresTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Genres') ? [] : ['className' => 'App\Model\Table\GenresTable'];
-        $this->Genres = TableRegistry::get('Genres', $config);
+        $config = TableRegistry::exists('Orders') ? [] : ['className' => 'App\Model\Table\OrdersTable'];
+        $this->Orders = TableRegistry::get('Orders', $config);
     }
 
     /**
@@ -50,7 +51,7 @@ class GenresTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Genres);
+        unset($this->Orders);
 
         parent::tearDown();
     }
@@ -71,6 +72,16 @@ class GenresTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
