@@ -27,7 +27,7 @@
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Products', 'action' => 'view', $products->id])
                     ?>
-                    <?= $this->Html->link(__('Buy'), ['controller' => 'Orders', 'action' => 'add', $products->id])
+                    <?= $this->Html->link(__('Buy'), ['controller' => 'Orders', 'action' => 'customerAdd', $products->id])
                     ?>
                 </td>
             </tr>

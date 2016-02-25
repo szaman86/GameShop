@@ -44,12 +44,13 @@ class OrdersController extends AppController
         $this->set('_serialize', ['order']);
     }
 
+
     /**
      * Add method
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add($productId)
+    public function customerAdd($productId)
     {
 
         $product = $this->Orders->Products->get($productId);

@@ -1,6 +1,6 @@
 <div class="orders form large-12 medium-12 columns content">
     <h1>
-        <?php echo $product->name; ?>
+        Customer Add <?php echo $product->name; ?>
     </h1>
     <fieldset>
         <legend><?= __('Enter your email:') ?></legend>
