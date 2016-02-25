@@ -6,6 +6,8 @@ use App\Controller\AppController;
 /**
  * Newsletters Controller
  *
+ * @property \App\Model\Table\OrdersTable $Orders
+ * @property \App\Model\Table\ProductsTable $Products
  * @property \App\Model\Table\NewslettersTable $Newsletters
  */
 class NewslettersController extends AppController
@@ -47,6 +49,13 @@ class NewslettersController extends AppController
      */
     public function customerAdd($order = null)
     {
+        $this->loadModel('Orders');
+        $this->loadModel('Products');
+        $order = $this->Orders->get($order, [
+            'contain' => []
+        ]);
+        $product = $this->Products->get(19);
+
         $newsletter = $this->Newsletters->newEntity();
 
         if ($this->request->is('post')) {
