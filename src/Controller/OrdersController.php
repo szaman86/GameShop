@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use App\Model\Table\ProductsTable;
-use Cake\ORM\TableRegistry;
+
 
 /**
  * Orders Controller
@@ -55,9 +55,13 @@ class OrdersController extends AppController
         $product = $this->Orders->Products->get($productId);
         $order = $this->Orders->newEntity();
         $order->set('products_id', $productId);
+        $productQuantity = $product->get('quantity');
+        $product->setQuantity(--$productQuantity);
         if ($this->request->is('post')) {
             $order = $this->Orders->patchEntity($order, $this->request->data);
             if ($this->Orders->save($order)) {
+                $this->Orders->Products->save($product);
+                $product->set('quantity', $productQuantity);
                 $this->Flash->success(__('The order has been saved.'));
                 return $this->redirect(
                     ['controller' => 'Genres', 'action' => 'customIndex']

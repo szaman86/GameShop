@@ -32,4 +32,10 @@ class Product extends Entity
         '*' => true,
         'id' => false,
     ];
+
+    public function setQuantity($newQuantity)
+    {
+        $this->set('quantity', $newQuantity);
+        return $this;
+    }
 }
