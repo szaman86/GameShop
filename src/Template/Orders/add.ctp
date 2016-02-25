@@ -7,7 +7,6 @@
         <?= $this->Form->create($order) ?>
         <?php
             echo $this->Form->input('email');
-            echo $this->Form->input('product_id',  ['options' => $product]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -1,4 +1,4 @@
-<div class="genres view large-9 medium-8 columns content">
+<div class="genres view large-12 medium-12 columns content">
     <h3><?= h($genre->name) ?></h3>
 
     <div class="related">
