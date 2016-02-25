@@ -27,7 +27,7 @@ class OrdersTable extends Table
 
         $this->table('orders');
         $this->displayField('id');
-        $this->primaryKey(['id', 'products_id']);
+        $this->primaryKey(['id']);
 
         $this->belongsTo('Products', [
             'foreignKey' => 'products_id',
