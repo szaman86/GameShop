@@ -26,6 +26,6 @@ class Order extends Entity
     protected $_accessible = [
         '*' => true,
         'id' => false,
-        'products_id' => false,
+        'products_id' => true,
     ];
 }

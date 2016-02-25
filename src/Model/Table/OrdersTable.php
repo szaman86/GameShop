@@ -49,7 +49,8 @@ class OrdersTable extends Table
 
         $validator
             ->email('email')
-            ->allowEmpty('email');
+            ->requirePresence('email', 'create')
+            ->notEmpty('email');
 
         return $validator;
     }
@@ -63,7 +64,6 @@ class OrdersTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['email']));
         $rules->add($rules->existsIn(['products_id'], 'Products'));
         return $rules;
     }

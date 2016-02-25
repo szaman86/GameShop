@@ -54,12 +54,14 @@ class OrdersController extends AppController
 
         $product = $this->Orders->Products->get($productId);
         $order = $this->Orders->newEntity();
-
+        $order->set('products_id', $productId);
         if ($this->request->is('post')) {
             $order = $this->Orders->patchEntity($order, $this->request->data);
             if ($this->Orders->save($order)) {
                 $this->Flash->success(__('The order has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(
+                    ['controller' => 'Genres', 'action' => 'customIndex']
+                );
             } else {
                 $this->Flash->error(__('The order could not be saved. Please, try again.'));
             }
