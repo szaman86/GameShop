@@ -64,9 +64,15 @@ class OrdersController extends AppController
                 $this->Orders->Products->save($product);
                 $product->set('quantity', $productQuantity);
                 $this->Flash->success(__('The order has been saved.'));
-                return $this->redirect(
-                    ['controller' => 'Genres', 'action' => 'customIndex']
-                );
+                if ($this->request->data['newsletter']) {
+                    return $this->redirect(
+                        ['controller' => 'Newsletters', 'action' => 'customerAdd', $order->get('id')]
+                    );
+                } else {
+                    return $this->redirect(
+                        ['controller' => 'Genres', 'action' => 'customIndex']
+                    );
+                }
             } else {
                 $this->Flash->error(__('The order could not be saved. Please, try again.'));
             }
