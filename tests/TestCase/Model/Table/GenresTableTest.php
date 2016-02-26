@@ -27,8 +27,8 @@ class GenresTableTest extends TestCase
         'app.genres',
         'app.products',
         'app.publishers',
-        'app.newsletter',
-        'app.newsletter_genres'
+        'app.newsletters',
+        'app.newsletters_genres'
     ];
 
     /**

@@ -4,14 +4,15 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Newsletter Entity.
+ * Customer Entity.
  *
  * @property int $id
  * @property string $email
  * @property string $first_name
  * @property string $last_name
+ * @property \App\Model\Entity\Genre[] $genres
  */
-class Newsletter extends Entity
+class Customer extends Entity
 {
 
     /**

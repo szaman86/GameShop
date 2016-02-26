@@ -4,14 +4,14 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Genre Entity.
+ * GenresCustomer Entity.
  *
- * @property int $id
- * @property string $name
- * @property \App\Model\Entity\Product[] $products
- * @property \App\Model\Entity\Newsletter[] $newsletters
+ * @property int $genres_id
+ * @property \App\Model\Entity\Genre $genre
+ * @property int $customers_id
+ * @property \App\Model\Entity\Customer $customer
  */
-class Genre extends Entity
+class GenresCustomer extends Entity
 {
 
     /**
@@ -25,6 +25,7 @@ class Genre extends Entity
      */
     protected $_accessible = [
         '*' => true,
-        'id' => false,
+        'genres_id' => false,
+        'customers_id' => false,
     ];
 }
