@@ -14,7 +14,6 @@
             echo $this->Form->input('email');
             echo $this->Form->input('first_name');
             echo $this->Form->input('last_name');
-            echo $this->Form->input('genres._ids', ['options' => $genres]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
