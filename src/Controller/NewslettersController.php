@@ -54,12 +54,12 @@ class NewslettersController extends AppController
         $order = $this->Orders->get($order, [
             'contain' => []
         ]);
-        $product = $this->Products->get(19);
+        $product = $this->Products->get($order->products_id);
 
         $newsletter = $this->Newsletters->newEntity();
-
         if ($this->request->is('post')) {
             $newsletter = $this->Newsletters->patchEntity($newsletter, $this->request->data);
+            $newsletter->set('genre', $product->genre);
             if ($this->Newsletters->save($newsletter)) {
                 $this->Flash->success(__('The newsletter has been saved.'));
                 return $this->redirect(['action' => 'index']);
@@ -68,6 +68,7 @@ class NewslettersController extends AppController
             }
         }
         $genres = $this->Newsletters->Genres->find('list', ['limit' => 200]);
+        $this->set('product', $product);
         $this->set(compact('newsletter', 'genres'));
         $this->set('_serialize', ['newsletter']);
     }
