@@ -76,7 +76,7 @@ Router::scope('/admin', function (RouteBuilder $routes) {
 Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Genres', 'action' => 'customIndex']);
     $routes->connect('/genre/*', ['controller' => 'Genres', 'action' => 'customerView']);
-    $routes->connect('/order/*', ['controller' => 'Orders', 'action' => 'customerAdd']);
+    $routes->connect('/order/*', ['controller' => 'Orders', 'action' => 'buyNow']);
 });
 /**
  * Load all plugin routes.  See the Plugin documentation on

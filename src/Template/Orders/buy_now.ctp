@@ -7,7 +7,7 @@
         <legend><?= __('Enter your email:') ?></legend>
         <?= $this->Form->create($order) ?>
         <?php
-                echo $this->Form->input('customers_email');
+                echo $this->Form->input('customer_email');
         ?>
     </fieldset>
 

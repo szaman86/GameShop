@@ -5,22 +5,26 @@
         <li><?= $this->Form->postLink(__('Delete Order'), ['action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Orders'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Order'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Products'), ['controller' => 'Products', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Product'), ['controller' => 'Products', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Customers'), ['controller' => 'Customers', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Customer'), ['controller' => 'Customers', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="orders view large-9 medium-8 columns content">
     <h3><?= h($order->id) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th><?= __('Email') ?></th>
-            <td><?= h($order->email) ?></td>
+            <th><?= __('Product') ?></th>
+            <td><?= $order->has('product') ? $this->Html->link($order->product->name, ['controller' => 'Products', 'action' => 'view', $order->product->id]) : '' ?></td>
+        </tr>
+        <tr>
+            <th><?= __('Customer') ?></th>
+            <td><?= $order->has('customer') ? $this->Html->link($order->customer->id, ['controller' => 'Customers', 'action' => 'view', $order->customer->id]) : '' ?></td>
         </tr>
         <tr>
             <th><?= __('Id') ?></th>
             <td><?= $this->Number->format($order->id) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Products Id') ?></th>
-            <td><?= $this->Number->format($order->products_id) ?></td>
         </tr>
     </table>
 </div>

@@ -1,7 +1,7 @@
-<div class="newsletters form large-12 medium-12 columns content">
-    <?= $this->Form->create($newsletter) ?>
+<div class="customers form large-12 medium-12 columns content">
+    <?= $this->Form->create($customer) ?>
     <fieldset>
-        <legend><?= __('Add Newsletter') ?></legend>
+        <legend><?= __('Edit Customer') ?></legend>
         <?php
             echo $this->Form->input('email');
             echo $this->Form->input('first_name');
