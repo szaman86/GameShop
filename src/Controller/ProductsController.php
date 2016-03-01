@@ -41,6 +41,22 @@ class ProductsController extends AppController
         $this->set('product', $product);
         $this->set('_serialize', ['product']);
     }
+    /**
+     * View method
+     *
+     * @param string|null $id Product id.
+     * @return \Cake\Network\Response|null
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function customerView($id = null)
+    {
+        $product = $this->Products->get($id, [
+            'contain' => ['Genres', 'Publishers']
+        ]);
+
+        $this->set('product', $product);
+        $this->set('_serialize', ['product']);
+    }
 
     /**
      * Add method

@@ -40,6 +40,22 @@ class PublishersController extends AppController
         $this->set('publisher', $publisher);
         $this->set('_serialize', ['publisher']);
     }
+    /**
+     * View method
+     *
+     * @param string|null $id Publisher id.
+     * @return \Cake\Network\Response|null
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function customerView($id = null)
+    {
+        $publisher = $this->Publishers->get($id, [
+            'contain' => ['Products']
+        ]);
+
+        $this->set('publisher', $publisher);
+        $this->set('_serialize', ['publisher']);
+    }
 
     /**
      * Add method

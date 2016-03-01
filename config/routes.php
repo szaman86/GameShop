@@ -77,6 +77,8 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Genres', 'action' => 'customIndex']);
     $routes->connect('/genre/*', ['controller' => 'Genres', 'action' => 'customerView']);
     $routes->connect('/order/*', ['controller' => 'Orders', 'action' => 'buyNow']);
+    $routes->connect('/product/*', ['controller' => 'Products', 'action' => 'customerView']);
+    $routes->connect('/publisher/*', ['controller' => 'Publishers', 'action' => 'customerView']);
 });
 /**
  * Load all plugin routes.  See the Plugin documentation on
