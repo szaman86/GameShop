@@ -30,8 +30,8 @@ class CustomersTable extends Table
         $this->primaryKey('id');
 
         $this->belongsToMany('Genres', [
-            'foreignKey' => 'customer_id',
-            'targetForeignKey' => 'genre_id',
+            'foreignKey' => 'customers_id',
+            'targetForeignKey' => 'genres_id',
             'joinTable' => 'genres_customers'
         ]);
     }
@@ -54,12 +54,10 @@ class CustomersTable extends Table
             ->notEmpty('email');
 
         $validator
-            ->requirePresence('first_name', 'create')
-            ->notEmpty('first_name');
+            ->allowEmpty('first_name');
 
         $validator
-            ->requirePresence('last_name', 'create')
-            ->notEmpty('last_name');
+            ->allowEmpty('last_name');
 
         return $validator;
     }

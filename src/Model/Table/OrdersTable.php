@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  * Orders Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Products
+ * @property \Cake\ORM\Association\BelongsTo $Customers
  */
 class OrdersTable extends Table
 {
@@ -27,10 +28,14 @@ class OrdersTable extends Table
 
         $this->table('orders');
         $this->displayField('id');
-        $this->primaryKey(['id']);
+        $this->primaryKey('id');
 
         $this->belongsTo('Products', [
             'foreignKey' => 'products_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Customers', [
+            'foreignKey' => 'customers_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -47,11 +52,6 @@ class OrdersTable extends Table
             ->integer('id')
             ->allowEmpty('id', 'create');
 
-        $validator
-            ->email('email')
-            ->requirePresence('email', 'create')
-            ->notEmpty('email');
-
         return $validator;
     }
 
@@ -65,6 +65,7 @@ class OrdersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['products_id'], 'Products'));
+        $rules->add($rules->existsIn(['customers_id'], 'Customers'));
         return $rules;
     }
 }

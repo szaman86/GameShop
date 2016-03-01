@@ -25,7 +25,7 @@ class GenresCustomer extends Entity
      */
     protected $_accessible = [
         '*' => true,
-        'genres_id' => false,
-        'customers_id' => false,
+        'genres_id' => true,
+        'customers_id' => true,
     ];
 }
